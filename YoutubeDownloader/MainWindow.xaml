@@ -181,7 +181,8 @@
                         Width="70"
                         Background="Transparent"
                         BorderBrush="Transparent"
-                        Foreground="{StaticResource PrimaryDarkBrush400}">
+                        Foreground="{StaticResource PrimaryDarkBrush400}"
+                        Command="{Binding NavigateSettingsCommand}">
                     <Button.Content>
                         <md:PackIcon Kind="Settings" 
                                      Height="40"
@@ -211,6 +212,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:AppViewModel}">
                         <view:MainAppView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:SettingsViewModel}">
+                        <view:SettingsView />
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>

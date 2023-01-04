@@ -19,11 +19,13 @@ namespace YoutubeDownloader.ViewModels
         public ViewModelBase? CurrentViewModel => _navigator.CurrentViewModel;
 
         public ICommand? NavigateHomeCommand { get; }
+        public ICommand? NavigateSettingsCommand { get; }
         public AppViewModel(INavigator navigator)
         {
             _navigator = navigator;
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(_navigator, () => new HomeViewModel(_navigator));
+            NavigateSettingsCommand = new NavigateCommand<SettingsViewModel>(_navigator, () => new SettingsViewModel());
         }
 
         private void OnCurrentViewModelChanged()
