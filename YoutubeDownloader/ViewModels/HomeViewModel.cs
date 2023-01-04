@@ -9,22 +9,33 @@ using YoutubeDownloader.Commands;
 using YoutubeDownloader.Interfaces;
 using System.Drawing;
 using YoutubeExplode.Common;
+using YoutubeExplode.Videos;
+using YoutubeDownloader.Models;
+using YoutubeDownloader.Helpers;
 
 namespace YoutubeDownloader.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {
         private readonly INavigator _navigator;
+        private IOHelper ioHelper { get; }
+
         public YoutubeClient _ytClient;
-        public Stack<string> _history { get; set; } = new();
+        public Stack<History> _history { get; set; } = new();
         public ViewModelBase? CurrentViewModel => _navigator.CurrentViewModel;
         public ICommand? SearchCommand { get; }
+        public ICommand? CancelCommand { get; }
 
         private string _searchQuery;
         public string SearchQuery
         {
             get => _searchQuery;
-            set => OnPropertyChanged(ref _searchQuery, value);
+            set
+            {
+                _searchQuery = value;
+                OnPropertyChanged(ref _searchQuery, value);
+                CanSearch = !string.IsNullOrEmpty(_searchQuery);
+            }
 
         }
 
@@ -61,16 +72,31 @@ namespace YoutubeDownloader.ViewModels
         {
             get => _canSearch;
             set => OnPropertyChanged(ref _canSearch, value);
+
+        }
+
+        private bool _canDownload;
+        public bool CanDownload
+        {
+            get => _canDownload;
+            set => OnPropertyChanged(ref _canDownload, value);
         }
         public HomeViewModel(INavigator navigator)
         {
             _navigator = navigator;
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             _ytClient = new YoutubeClient();
+            ioHelper = new IOHelper();
             SearchCommand = new RelayCommand(SearchForVideo);
+            CancelCommand = new RelayCommand(CancelDownload);
         }
 
-        public async void SearchForVideo()
+        private void CancelDownload()
+        {
+            _navigator.CurrentViewModel = new AppViewModel(_navigator);
+        }
+
+        private async void SearchForVideo()
         {
             //TODO: create new helper class to handle youtube video searching
             var video = await _ytClient.Videos.GetAsync(SearchQuery);
@@ -78,6 +104,18 @@ namespace YoutubeDownloader.ViewModels
             Author = $"Author: {video.Author}";
             Duration = $"Duration: {video.Duration.ToString()!}";
             Thumbnail = video.Thumbnails.First().Url;
+
+            if (video is not null)
+                CanDownload = true;
+            var historyModel = new History()
+            {
+                Id = Guid.NewGuid(),
+                Content = SearchQuery,
+                IsDownloaded = false,
+                DateDownloaded = DateTimeOffset.UtcNow
+            };
+            await ioHelper.SaveHostoryToFileAsync(historyModel);
+            _history.Push(historyModel);
 
         }
 

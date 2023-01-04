@@ -209,6 +209,9 @@
                     <DataTemplate DataType="{x:Type vm:HomeViewModel}">
                         <view:HomeView />
                     </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:AppViewModel}">
+                        <view:MainAppView />
+                    </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>
             <!--#endregion-->

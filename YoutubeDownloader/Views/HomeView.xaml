@@ -60,7 +60,7 @@
                         Foreground="{StaticResource PrimaryOrangeBrush}"
                         Opacity=".6"
                         Margin="0"
-                        IsEnabled="{Binding CanSearch, Converter={StaticResource boolToEnabledConverter}}"
+                        IsEnabled="{Binding CanSearch}"
                         Command="{Binding SearchCommand}">
                     <Button.Content>
                         <md:PackIcon Kind="Forward"
@@ -90,7 +90,10 @@
                           VerticalAlignment="Top"
                           md:HintAssist.Hint="Choose Video Quality"
                           md:HintAssist.Foreground="{StaticResource PrimaryOrangeBrush}" 
-                          Margin="6 0"/>
+                          Margin="6 0">
+                    <ComboBoxItem Content="1080p" />
+                    <ComboBoxItem Content="720p" />
+                </ComboBox>
                 <TextBlock Grid.Row="1"
                            Text="{Binding Title, FallbackValue=Title}"
                            FontSize="16"
@@ -98,7 +101,8 @@
                            Opacity=".6"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center"
-                           Margin="6 0"/>
+                           Margin="6 0"
+                           TextWrapping="Wrap"/>
                 <TextBlock Grid.Row="2"
                            Text="{Binding Author, FallbackValue=Author}"
                            FontSize="16"
@@ -118,7 +122,7 @@
             </Grid>
             <Image Grid.Column="2"
                    Grid.Row="1"
-                   Source="{Binding Thumbnail, FallbackValue=/assets/images/default.png}"
+                   Source="{Binding Thumbnail, FallbackValue=/Assets/images/default.png}"
                    Height="240"
                    Width="240"
                    Stretch="Uniform"
@@ -143,7 +147,8 @@
                         Content="DOWNLOAD"
                         Background="Green"
                         BorderBrush="DarkGreen"
-                        Margin="4 0">
+                        Margin="4 0"
+                        IsEnabled="{Binding CanDownload}">
                     
                 </Button>
                  <Button Style="{StaticResource MaterialDesignRaisedButton}"
@@ -151,7 +156,8 @@
                          Background="Red"
                          BorderBrush="Transparent"
                          Foreground="AntiqueWhite"
-                         Margin="4 0">
+                         Margin="4 0"
+                         Command="{Binding CancelCommand}">
                     
                 </Button>
             </StackPanel>
