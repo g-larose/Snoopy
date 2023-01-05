@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YoutubeDownloader.Helpers
+namespace Snoopy.Core.Helpers
 {
     public class YoutubeHelper
     {

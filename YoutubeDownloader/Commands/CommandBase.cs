@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace YoutubeDownloader.Commands
+namespace Snoopy.Core.Commands
 {
     public abstract class CommandBase : ICommand
     {

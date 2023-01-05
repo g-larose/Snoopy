@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YoutubeDownloader.Models;
+using Snoopy.Core.Models;
 
-namespace YoutubeDownloader.Helpers
+namespace Snoopy.Core.Helpers
 {
     public class IOHelper
     {

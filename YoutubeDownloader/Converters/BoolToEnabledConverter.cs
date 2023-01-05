@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace YoutubeDownloader.Converters
+namespace Snoopy.Core.Converters
 {
     public class BoolToEnabledConverter : IValueConverter
     {

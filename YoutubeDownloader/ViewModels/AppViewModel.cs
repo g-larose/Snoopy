@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using YoutubeDownloader.Commands;
-using YoutubeDownloader.Interfaces;
+using Snoopy.Core.Commands;
+using Snoopy.Core.Interfaces;
 
-namespace YoutubeDownloader.ViewModels
+namespace Snoopy.Core.ViewModels
 {
     /// <summary>
     /// Created by the template
@@ -20,12 +20,14 @@ namespace YoutubeDownloader.ViewModels
 
         public ICommand? NavigateHomeCommand { get; }
         public ICommand? NavigateSettingsCommand { get; }
+        public ICommand? NavigateHistoryCommand { get; }
         public AppViewModel(INavigator navigator)
         {
             _navigator = navigator;
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
             NavigateHomeCommand = new NavigateCommand<HomeViewModel>(_navigator, () => new HomeViewModel(_navigator));
             NavigateSettingsCommand = new NavigateCommand<SettingsViewModel>(_navigator, () => new SettingsViewModel());
+            NavigateHistoryCommand = new NavigateCommand<HistoryViewModel>(_navigator, () => new HistoryViewModel(_navigator));
         }
 
         private void OnCurrentViewModelChanged()

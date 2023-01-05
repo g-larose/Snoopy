@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="YoutubeDownloader.Views.HomeView"
+﻿<UserControl x:Class="Snoopy.Core.Views.HomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:YoutubeDownloader.Views"
-             xmlns:converters="clr-namespace:YoutubeDownloader.Converters"
+             xmlns:local="clr-namespace:Snoopy.Core.Views"
+             xmlns:converters="clr-namespace:Snoopy.Core.Converters"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">

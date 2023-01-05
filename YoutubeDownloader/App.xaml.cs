@@ -1,11 +1,11 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Windows;
-using YoutubeDownloader.Interfaces;
-using YoutubeDownloader.Navigation;
-using YoutubeDownloader.ViewModels;
+using Snoopy.Core.Interfaces;
+using Snoopy.Core.Navigation;
+using Snoopy.Core.ViewModels;
 
-namespace YoutubeDownloader
+namespace Snoopy.Core
 {
     /// <summary>
     /// This is created by the template

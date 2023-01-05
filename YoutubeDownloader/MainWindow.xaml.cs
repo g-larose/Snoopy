@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace YoutubeDownloader
+namespace Snoopy.Core
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YoutubeDownloader.Models
+namespace Snoopy.Core.Models
 {
     public class History
     {

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YoutubeDownloader.ViewModels;
+using Snoopy.Core.ViewModels;
 
-namespace YoutubeDownloader.Interfaces
+namespace Snoopy.Core.Interfaces
 {
     public interface INavigator
     {

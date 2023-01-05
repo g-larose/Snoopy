@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YoutubeDownloader.Data;
+using Snoopy.Core.Data;
 
-namespace YoutubeDownloader.Factories
+namespace Snoopy.Core.Factories
 {
     public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {

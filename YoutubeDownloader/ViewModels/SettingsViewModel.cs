@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YoutubeDownloader.ViewModels
+namespace Snoopy.Core.ViewModels
 {
     public class SettingsViewModel : ViewModelBase
     {

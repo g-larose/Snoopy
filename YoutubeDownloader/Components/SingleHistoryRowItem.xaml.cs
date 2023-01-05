@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace YoutubeDownloader.Components
+namespace Snoopy.Core.Components
 {
     /// <summary>
     /// Interaction logic for SingleHistoryRowItem.xaml

@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using YoutubeExplode;
-using YoutubeDownloader.Commands;
-using YoutubeDownloader.Interfaces;
+using Snoopy.Core.Commands;
+using Snoopy.Core.Interfaces;
 using System.Drawing;
 using YoutubeExplode.Common;
 using YoutubeExplode.Videos;
-using YoutubeDownloader.Models;
-using YoutubeDownloader.Helpers;
+using Snoopy.Core.Models;
+using Snoopy.Core.Helpers;
 
-namespace YoutubeDownloader.ViewModels
+namespace Snoopy.Core.ViewModels
 {
     public class HomeViewModel : ViewModelBase
     {

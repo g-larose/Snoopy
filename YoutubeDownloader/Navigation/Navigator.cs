@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YoutubeDownloader.Interfaces;
-using YoutubeDownloader.ViewModels;
+using Snoopy.Core.Interfaces;
+using Snoopy.Core.ViewModels;
 
-namespace YoutubeDownloader.Navigation
+namespace Snoopy.Core.Navigation
 {
     public class Navigator : INavigator
     {
