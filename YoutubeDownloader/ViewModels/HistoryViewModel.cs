@@ -37,13 +37,15 @@ namespace Snoopy.Core.ViewModels
             _navigator = navigator;
             _history = new Stack<string>();
             DeleteCommand = new RelayCommand(DeleteHistory);
-            HistoryList= new ObservableCollection<History>();
+            HistoryList = new ObservableCollection<History>();
             LoadHistory();
         }
 
         private void DeleteHistory()
         {
             var historyId = SelectedHistory;
+            HistoryList.Remove(historyId);
+            SelectedHistory = null;
         }
 
         private void LoadHistory()

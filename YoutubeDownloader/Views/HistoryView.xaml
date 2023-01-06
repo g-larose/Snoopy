@@ -19,13 +19,29 @@
             <RowDefinition Height="60" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button Grid.Row="0"
-                HorizontalAlignment="Right"
-                Margin="20 0"
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal" 
+                     HorizontalAlignment="Right">
+            <Button
+                Margin="10 0"
                 Content="DELETE"
+                Background="Red"
+                BorderBrush="Transparent"
+                Foreground="{StaticResource PrimaryYellowBrush}"
                 Command="{Binding DeleteCommand}" 
                 CommandParameter="{Binding Path=SelectedHistory}"
                 IsEnabled="{Binding SelectedHistory, Converter={StaticResource nullToVisibilityConverter}}"/>
+             <Button
+                Margin="4 0 20 0"
+                Content="VIEW"
+                BorderBrush="{StaticResource PrimaryOrangeToSecondaryOrange}"
+                 BorderThickness=".75"
+                Background="{StaticResource Primary100ToSecondary200GradientBrush}"
+                Foreground="{StaticResource PrimaryDarkBrush500}"
+                Command="{Binding ViewHistoryCommand}" 
+                CommandParameter="{Binding Path=SelectedHistory}" />
+        </StackPanel>
+        
         <ScrollViewer Grid.Row="1">
             <ListBox ItemsSource="{Binding HistoryList}"
                      Margin="20"
