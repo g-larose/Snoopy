@@ -5,26 +5,42 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Snoopy.Core.Views"
     xmlns:vm="clr-namespace:Snoopy.Core.ViewModels"
+    xmlns:converters="clr-namespace:Snoopy.Core.Converters"
     xmlns:components="clr-namespace:Snoopy.Core.Components"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:NullToVisibilityConverter x:Key="nullToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
-        <ScrollViewer>
-            <ItemsControl ItemsSource="{Binding HistoryList}"
-                          Margin="20">
-                <ItemsControl.ItemsPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0"
+                HorizontalAlignment="Right"
+                Margin="20 0"
+                Content="DELETE"
+                Command="{Binding DeleteCommand}" 
+                CommandParameter="{Binding Path=SelectedHistory}"
+                IsEnabled="{Binding SelectedHistory, Converter={StaticResource nullToVisibilityConverter}}"/>
+        <ScrollViewer Grid.Row="1">
+            <ListBox ItemsSource="{Binding HistoryList}"
+                     Margin="20"
+                     SelectedItem="{Binding Path=SelectedHistory}">
+                <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel />
                     </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
                     <DataTemplate DataType="{x:Type vm:HistoryViewModel}">
                         <components:SingleHistoryRowItem />
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </ScrollViewer>
     </Grid>
 </UserControl>

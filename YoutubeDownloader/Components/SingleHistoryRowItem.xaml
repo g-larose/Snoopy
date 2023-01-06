@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Snoopy.Core.Components"
+    xmlns:components="clr-namespace:Snoopy.Core.Components"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="600"
     Height="50"
@@ -42,14 +43,16 @@
                            Width="480"
                            TextWrapping="WrapWithOverflow">
                 </TextBlock>
-                 <Button Content="DELETE"
+                 <!--<Button Content="DELETE"
                          Background="Red"
                          Margin="10 0" 
                          Width="70"
                          Height="24"
                          FontSize="10"
                          Foreground="{StaticResource PrimaryDarkBrush100}"
-                         HorizontalAlignment="Right"/>
+                         HorizontalAlignment="Right"
+                         Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type ListBox}, Mode=FindAncestor}}" 
+                         CommandParameter="{Binding Path=SelectedHistory}"/>-->
             </StackPanel>
             
             <Grid Grid.Column="1"
